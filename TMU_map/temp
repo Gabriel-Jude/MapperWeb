@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?
+sensor=false"></script>
+<script type="text/javascript">
+
+function initialize() {
+var latlng = new google.maps.LatLng(0, 0);
+var myOptions = {
+zoom: 1,
+center: latlng,
+mapTypeId: google.maps.MapTypeId.ROADMAP
+};
+map = new
+google.maps.Map(document.getElementById("map_canvas"), myOptions);
+}
+
+
+
+function selectedLocation() {
+var selected = document.getElementById("location").value;
+if (selected == "Location 1") {
+var location1 = new google.maps.LatLng(48.017, 37.914);
+map.setCenter(location1);
+map.setZoom(12);
+
+
+}
+else if (selected == "Location 2") {
+var location2 = new google.maps.LatLng(50.269, 28.665);
+map.setCenter(location2);
+map.setZoom(12);
+
+}
+}
+
+</script>
+</head>
+<body onload="initialize()">
+
+<p>
+<form action="#" >
+<select onchange="selectedLocation()" id="location">
+<option value="None">-</option>
+<option value="Location 1">Location 1</option>
+<option value="Location 2">Location 2</option>
+</select>
+
+</form>
+</p>
+<div id="map_canvas" style="width:600px; height:400px"></div>
+</body>
+</html>
