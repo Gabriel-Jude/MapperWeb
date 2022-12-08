@@ -12,18 +12,18 @@ var mapOptions = {
 //create map
 var map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
 
-const marker = new google.maps.Marker({
-    position: { lat: 43.65882493196989, lng: -79.3802579882013 },
-    map: map,
-    title: "Kerr Hall",
-    label: "Kerr Hall",
-    icon: {
-        url: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(17, 34),
-        Size: new google.maps.Size(15, 15),
-    }
-  });
+// const marker = new google.maps.Marker({
+//     position: { lat: 43.65882493196989, lng: -79.3802579882013 },
+//     map: map,
+//     title: "Kerr Hall",
+//     label: "Kerr Hall",
+//     icon: {
+//         url: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+//         origin: new google.maps.Point(0, 0),
+//         anchor: new google.maps.Point(17, 34),
+//         Size: new google.maps.Size(15, 15),
+//     }
+//   });
 
 
 

@@ -12,6 +12,7 @@
 <body>
   
 
+
     <div class="jumbotron">
         <div class="container-fluid">
             <h1>TMU MAP</h1>
@@ -130,6 +131,39 @@
         </div>
 
     </div>
+
+    <div class="container">
+        
+        <a href="#" class="button">Login</a>
+    </div>
+
+    <div class="popup">
+        <div class="popup-content">
+            <img src="Images/black-close-icon-3.png" alt="Close" class="close"
+                width="25" height="25">
+            <img src="Images/tmu-logo-social-media.jpg" alt=""
+                width="100" height="100" />
+                <input type="text" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <a href="#" class="button">Login</a>
+        </div>
+    </div>
+
+    <script>
+        el = document.querySelector('.button');
+        if(el) {
+            el.addEventListener('click', function() {
+                document.querySelector('.popup').style.display = 'flex';
+            });
+        }
+
+        el2 = document.querySelector('.close');
+        if(el2) {
+            el2.addEventListener('click', function() {
+                document.querySelector('.popup').style.display = 'none';
+            });
+        }
+    </script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiXhxdM--EMVkUj33dxa6kfTV1GtPZGS4&libraries=places"></script>
