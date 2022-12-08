@@ -135,6 +135,7 @@
     <div class="container">
         
         <a href="#" class="button">Login</a>
+  
     </div>
 
     <div class="popup">
@@ -143,9 +144,10 @@
                 width="25" height="25">
             <img src="Images/tmu-logo-social-media.jpg" alt=""
                 width="100" height="100" />
-                <input type="text" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <a href="#" class="button">Login</a>
+                <input type="text" id="email" placeholder="Email">
+                <input type="password" id="password" placeholder="Password">
+                <input type="button" id="login" value="Login">
+                <input type="button" id="signUp" value="Sign up">
         </div>
     </div>
 
@@ -163,6 +165,8 @@
                 document.querySelector('.popup').style.display = 'none';
             });
         }
+       
+
     </script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -172,4 +176,81 @@
     <script src="Scripts/jquery-3.1.1.min.js"></script>
     <script src="Main.js"></script>
 </body>
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+    import { getDatabase,set,ref } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
+   
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCAgJz7G6oM2nN8aopF4ZBKoH7ouxVJti4",
+      authDomain: "kerrhallmappertesting.firebaseapp.com",
+      projectId: "kerrhallmappertesting",
+      storageBucket: "kerrhallmappertesting.appspot.com",
+      messagingSenderId: "718698774327",
+      appId: "1:718698774327:web:37232056a634c2a69724b2"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth();
+
+    const signUpButton = document.getElementById('signUp');
+    signUpButton.addEventListener('click', (e) => {
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            set(ref(database ,'users/' + user.uid),{ 
+                email: email
+            });
+            alert('User Created!');
+            // ...
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            
+            alert(errorMessage);
+            // ..
+        });
+    });
+    
+    const loginButton = document.getElementById('login');
+    loginButton.addEventListener('click', (e) => {
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Signed in
+            const user = userCredential.user;
+            set(ref(database ,'users/' + user.uid),{ 
+                lastLogin: Date.now()
+            }    
+            );
+
+            alert('User Logged In!');
+            location.replace("LoggedInUser.html");
+
+            // ...
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert(errorMessage);
+            // ..
+        });
+    });
+
+  </script>
+
+
 </html>

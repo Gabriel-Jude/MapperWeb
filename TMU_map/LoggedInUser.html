@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>TMU MAP App</title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://kit.fontawesome.com/ab2155e76b.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="App.css" rel="stylesheet" />
+</head>
+<body>
+  
+
+
+    <div class="jumbotron">
+        <div class="container-fluid">
+            <h1>TMU MAP</h1>
+            <p>Your Guide To TMU and Downtown Toronto</p>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="from" class="col-xs-2 control-label"><i class="far fa-dot-circle"></i></label>
+                    <div class="col-xs-4">
+                        
+                        <select id="from">
+
+                            <option value="245 Church St, Toronto, ON M5B 1Z4">ENG-George Vari Engineering and Computing Centre</option>
+                            <option value="50 Gould St, Toronto, ON M5B 1W1, Canada">KH-Kerr Hall</option>
+                            <option value="80 Gould St, Toronto, ON M5B 2M7">RCC-Rogers Communications Centre</option>
+                            <option value="55 Dundas St W, Toronto, ON M5G 2C3">TRS-Ted Rogers School of Management</option>
+                            
+                           
+                        </select>
+                       
+                        <!-- <input type="text" id="from" placeholder="Origin" class="form-control"> -->
+                    </div>
+               </div>
+
+               <div class="form-group">
+                
+                    <label for="to" class="col-xs-2 control-label"><i class="fas fa-map-marker-alt"></i></label>
+                    <div class="col-xs-4">
+                        <select id="to">
+
+                            <option value="245 Church St, Toronto, ON M5B 1Z4">ENG-George Vari Engineering and Computing Centre</option>
+                            <option value="50 Gould St, Toronto, ON M5B 1W1, Canada">KH-Kerr Hall</option>
+                            <option value="80 Gould St, Toronto, ON M5B 2M7">RCC-Rogers Communications Centre</option>
+                            <option value="55 Dundas St W, Toronto, ON M5G 2C3">TRS-Ted Rogers School of Management</option>
+                            
+                        </select>
+
+                    </div>
+                  
+                 </div>
+                 
+            </form>
+            
+            
+            <div class="col-xs-offset-2 col-xs-10">
+                <button class="btn btn-info btn-lg " onclick="calcRoute();"><i class="fas fa-map-signs"></i></button>
+                <div class="col-xs-2">
+                    <button class="btn btn-info btn-lg" onclick="back();"><i class="fas fa-arrow-left"></i></button>
+                </div>
+                <div class="col-xs-5">
+                    <h1 id="date">MONDAY</h1>
+                </div>
+                <div class="">
+                    <button class="btn btn-info btn-lg" onclick="forward();"><i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div id="googleMap">
+
+            </div>
+            <div id="output">
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+        
+        <a href="Index.html" class="button">Logout</a>
+  
+    </div>
+
+    <div>
+        <!-- Create a block that displays todays date and forward and back buttons -->
+        <div class="SchContainer">
+            <div class="row">
+                
+            </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiXhxdM--EMVkUj33dxa6kfTV1GtPZGS4&libraries=places"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="Scripts/jquery-3.1.1.min.js"></script>
+    <script src="Main.js"></script>
+</body>
+
+</html>

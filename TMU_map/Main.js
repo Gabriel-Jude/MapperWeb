@@ -9,6 +9,7 @@ var mapOptions = {
 
 };
 
+var number = 2;
 //create map
 var map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
 
@@ -96,6 +97,8 @@ function calcRoute() {
 
 
 
+
+
 //create autocomplete objects for all inputs
 
 
@@ -111,3 +114,5 @@ autocomplete1.bindTo("bounds",map);
 var autocomplete2 = document.getElementById("to");
 // var autocomplete2 = new google.maps.places.Autocomplete(input2, options);
 autocomplete2.bindTo("bounds",map);
+
+

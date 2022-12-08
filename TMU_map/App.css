@@ -123,3 +123,12 @@ input{
   box-shadow: 6px 6px 29px -4px rgba(0,0,0,0.75);
   cursor: pointer;
 }
+
+.SchContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 20px auto;
+  top : 200px;
+}
